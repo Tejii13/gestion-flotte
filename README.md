@@ -30,6 +30,38 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Dev notes
 
+I will describe now the project works
+
+## Components
+
+There are 3 components available:
+
+- `app.component`
+- `members.component`
+- `print-ships.component`
+
+## app.component
+
+### app.component.html
+
+It shows the members.component template.
+
+### app.component.sass
+
+No style for now
+
+### app.component.ts
+
+`OnInit`, it calls the function `getMembers()` from the members.component.
+
+## members.component
+<!-- TODO Finish the readme at this point -->
+### members.component.html
+
+### members.component.sass
+
+### members.component.ts
+
 ### Updates
 
 This project was just launched, updates will come in the future.

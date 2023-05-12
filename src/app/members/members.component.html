@@ -1,0 +1,5 @@
+<button type="button" (click)="getMembers()">Get Members</button>
+<select *ngIf="apiData" name="membres" title="Membres">
+  <option>Members</option>
+  <option *ngFor="let member of apiData">{{ member.display }}</option>
+</select>

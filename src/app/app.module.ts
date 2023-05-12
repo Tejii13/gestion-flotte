@@ -6,11 +6,12 @@ import { HttpClientModule } from '@angular/common/http'; // Required for API imp
 import { AppComponent } from './app.component';
 import { ScApiService } from './sc-api.service';
 import { PrintShipsComponent } from './print-ships/print-ships.component';
+import { MembersComponent } from './members/members.component';
 
 @NgModule({
-  declarations: [AppComponent, PrintShipsComponent],
+  declarations: [AppComponent, PrintShipsComponent, MembersComponent],
   imports: [BrowserModule, HttpClientModule],
-  providers: [ScApiService],
+  providers: [ScApiService, MembersComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

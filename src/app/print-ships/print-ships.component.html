@@ -1,3 +1,4 @@
-<p>print-ships works!</p>
 <button type="button" (click)="printData()">Find Ships</button>
-<div *ngFor="data.data"></div>
+<div *ngFor="let ship of apiData">
+  <p *ngIf="ship">{{ ship.name }}</p>
+</div>
