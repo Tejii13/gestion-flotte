@@ -64,4 +64,4 @@ No style for now
 
 ### Updates
 
-This project was just launched, updates will come in the future.
+- StarCitizen API implementation

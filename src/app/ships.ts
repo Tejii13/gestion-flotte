@@ -21,7 +21,7 @@ export interface ShipApi {
   };
 }
 
-export interface Ship {
+export type Ship = {
   name: string;
   media: {
     0: {
@@ -40,4 +40,4 @@ export interface Ship {
   };
   price: string;
   production_status: string;
-}
+};

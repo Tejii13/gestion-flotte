@@ -3,6 +3,7 @@ import { apiKey } from '../environment/environment';
 // import { Ship } from '../ships';
 
 import { ScApiService } from '../sc-api.service';
+import { Ship } from '../ships';
 
 @Component({
   selector: 'app-print-ships',
@@ -12,6 +13,7 @@ import { ScApiService } from '../sc-api.service';
 export class PrintShipsComponent {
   constructor(public printShips: ScApiService) {}
 
+  // public apiData: Ship; // Used in the template
   public apiData: any; // Used in the template
   public brands: Array<Array<string>>;
 
