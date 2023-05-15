@@ -12,7 +12,7 @@ export class ScApiService {
   // Function the calls the Api and returns the data to it's own caller
   fetchApi(apiUrl: string) {
     console.log('Fetch');
-    return this.http.get<ShipApi>(apiUrl);
+    return this.http.get<any>(apiUrl);
   }
 
   submitToken(name: string, token: number | string) {

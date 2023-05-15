@@ -15,7 +15,7 @@ export class PrintShipsComponent {
 
   // public apiData: Ship; // Used in the template
   public apiData: any; // Used in the template
-  public brands: Array<Array<string>>;
+  public brands: Array<string>;
 
   // It prints all the ships present in the Api
   printData() {
@@ -24,12 +24,22 @@ export class PrintShipsComponent {
       console.log(data.data);
       console.log(apiUrl);
       this.apiData = data.data;
+      for (let ship of this.apiData) {
+        if (ship) {
+          console.log(ship.manufacturer.name);
+          // FIXME
+          // for (let n = 0; n < this.brands.length; n++) {
+          //   if (ship.manufacturer.name !== this.brands[n]) {
+          //     this.brands[n] = ship.manufacturer.name;
+          //   }
+          // }
+        }
+      }
+      console.log(this.brands);
       this.sortBrands(this.apiData);
     });
   }
 
   // Get's each ship and sorts it in an array
-  sortBrands(apiData: any) {
-    console.log(apiData.name);
-  }
+  sortBrands(apiData: any) {}
 }
