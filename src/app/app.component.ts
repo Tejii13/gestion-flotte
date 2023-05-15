@@ -12,7 +12,5 @@ export class AppComponent implements OnInit {
   constructor(public app: ScApiService, private members: MembersComponent) {}
   title = 'gestion-flotte';
 
-  ngOnInit(): void {
-    this.members.getMembers();
-  }
+  ngOnInit(): void {}
 }

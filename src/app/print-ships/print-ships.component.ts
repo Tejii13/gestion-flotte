@@ -30,6 +30,6 @@ export class PrintShipsComponent {
 
   // Get's each ship and sorts it in an array
   sortBrands(apiData: any) {
-    // console.log(apiData.name);
+    console.log(apiData.name);
   }
 }

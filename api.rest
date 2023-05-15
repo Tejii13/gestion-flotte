@@ -1,0 +1,6 @@
+GET https://api.starcitizen-api.com/a57fe0c2188cdf13bcd164354d591d3b/cache/ships HTTP/1.1
+
+
+###
+
+GET https://api.starcitizen-api.com/a57fe0c2188cdf13bcd164354d591d3b/live/organization_members/SYNTHS HTTP/1.1

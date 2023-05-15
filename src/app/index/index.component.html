@@ -1,0 +1,17 @@
+<p>Token actuel : 103</p>
+
+<form [formGroup]="tokenForm">
+  <label for="myToken">Enter your token&nbsp;</label>
+  <p>
+    <input
+      id="myToken"
+      type="text"
+      placeholder="My Token"
+      formControlName="token"
+      (input)="handleToken()"
+    />
+  </p>
+</form>
+<button type="button" (click)="handleToken()">Check Token</button>
+<h1 *ngIf="tokenIsValid">Token valide: {{ myToken }}</h1>
+<h1 *ngIf="!tokenIsValid">Token non valide</h1>

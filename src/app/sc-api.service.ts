@@ -14,4 +14,9 @@ export class ScApiService {
     console.log('Fetch');
     return this.http.get<ShipApi>(apiUrl);
   }
+
+  submitToken(name: string, token: number | string) {
+    console.log(`My name: ${name}`);
+    console.log(`My token: ${token}`);
+  }
 }
