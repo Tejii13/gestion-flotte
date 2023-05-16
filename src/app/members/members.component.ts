@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ScApiService } from '../sc-api.service';
 import { apiKey } from '../environment/environment';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-members',
@@ -10,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./members.component.sass'],
 })
 export class MembersComponent {
-  constructor(public members: ScApiService, private http: HttpClient) {}
+  constructor(public members: ScApiService, private _route: Router) {}
 
   public apiData: any;
 
@@ -22,5 +21,13 @@ export class MembersComponent {
       console.log(data.data);
       this.apiData = data.data;
     });
+  }
+
+  public option: string;
+  public selectedMember: string;
+
+  handleChange(option: string) {
+    console.log(this.selectedMember);
+    this._route.navigateByUrl(`/ships/${this.selectedMember}`);
   }
 }

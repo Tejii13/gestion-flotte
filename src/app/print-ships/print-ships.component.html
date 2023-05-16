@@ -1,4 +1,21 @@
+<button (click)="goBack()"><-</button>
 <button type="button" (click)="printData()">Find Ships</button>
-<div *ngFor="let ship of apiData">
-  <p *ngIf="ship">{{ ship.name }}</p>
+<div *ngIf="apiData">
+  <form [formGroup]="shipForm">
+    <label for="shipInput">Enter the name of your ship&nbsp;</label>
+    <input
+      type="text"
+      placeholder="Example: Aurora"
+      id="shipInput"
+      list="shipsList"
+      formControlName="ship"
+      (submit)="handleAdd(option)"
+    />
+    <button (click)="handleAdd(option)">Ajouter</button>
+  </form>
+  <datalist id="shipsList">
+    <option *ngFor="let ship of apiData">
+      <p *ngIf="ship">{{ ship.name }}</p>
+    </option>
+  </datalist>
 </div>

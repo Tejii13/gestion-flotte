@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent },
   { path: 'members/:token', component: MembersComponent },
-  { path: 'ships', component: PrintShipsComponent },
+  { path: 'ships/:selectedMember', component: PrintShipsComponent },
 ];
 
 @NgModule({

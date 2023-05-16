@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; // Required for API implementation
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule } from '@angular/forms';
+
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PrintShipsComponent } from './print-ships/print-ships.component';
@@ -27,6 +29,7 @@ import { ScApiService } from './sc-api.service';
     AppRoutingModule,
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [ScApiService, MembersComponent],
   bootstrap: [AppComponent],
