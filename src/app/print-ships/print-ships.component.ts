@@ -23,7 +23,6 @@ export class PrintShipsComponent {
     });
   }
 
-  private myShip: string;
   public apiData: any; // Used in the template
   public shipForm: FormGroup;
 
@@ -31,7 +30,7 @@ export class PrintShipsComponent {
     this.location.back();
   }
   // It prints all the ships present in the Api
-  printData() {
+  getData() {
     let apiUrl = `https://api.starcitizen-api.com/${apiKey}/cache/ships`;
     this.printShips.fetchApi(apiUrl).subscribe((data) => {
       console.log(data.data);
@@ -40,6 +39,8 @@ export class PrintShipsComponent {
     });
   }
 
+  public myShip: string;
+  public myShipDesc: string;
   public option: string;
   public selectedShip: string;
   private ship: Ship;
@@ -49,11 +50,10 @@ export class PrintShipsComponent {
     console.log(this.myShip);
     for (let shipIndex of this.apiData) {
       if (shipIndex && shipIndex.name === this.myShip) {
-        console.log("My ship's name is " + shipIndex.name);
+        this.myShipDesc = `My ship's name is ${shipIndex.name}, it's considered to be a '${shipIndex.type}' ship and is made by ${shipIndex.manufacturer.name}`;
         this.ship = shipIndex;
       }
     }
-    // console.log(this.myShip + ': ', this.apiData);
     console.log(this.ship);
   }
 }

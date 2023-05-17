@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http'; // Required for API implementation
 import { AppRoutingModule } from './app-routing.module';
 
-import { FormsModule } from '@angular/forms';
-
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PrintShipsComponent } from './print-ships/print-ships.component';
-import { MembersComponent } from './members/members.component';
 import { IndexComponent } from './index/index.component';
 
 import { ScApiService } from './sc-api.service';
+import { MembersComponent } from './members/members.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrintShipsComponent,
-    MembersComponent,
     IndexComponent,
+    MembersComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +29,7 @@ import { ScApiService } from './sc-api.service';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [ScApiService, MembersComponent],
+  providers: [ScApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

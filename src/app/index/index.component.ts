@@ -1,6 +1,6 @@
 import { ScApiService } from './../sc-api.service';
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class IndexComponent {
   public myToken: string;
   public tokenForm: FormGroup;
-  public tokenIsValid: boolean;
+  public myTokenValidity: string;
 
   constructor(private formBuilder: FormBuilder, private _route: Router) {
     this.tokenForm = this.formBuilder.group({
@@ -24,10 +24,10 @@ export class IndexComponent {
     console.log(this.myToken.length);
 
     if (this.myToken.length === 3 && parseInt(this.myToken) === 103) {
-      this.tokenIsValid = true;
+      this.myTokenValidity = 'Token is valid';
       this._route.navigateByUrl(`/members/${this.myToken}`);
     } else {
-      this.tokenIsValid = false;
+      this.myTokenValidity = 'Token is not valid';
     }
   }
 }

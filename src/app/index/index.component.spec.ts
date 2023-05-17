@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { IndexComponent } from './index.component';
 
@@ -8,7 +9,8 @@ describe('IndexComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IndexComponent]
+      declarations: [IndexComponent],
+      imports: [ReactiveFormsModule],
     });
     fixture = TestBed.createComponent(IndexComponent);
     component = fixture.componentInstance;

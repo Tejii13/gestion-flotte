@@ -13,5 +13,4 @@
   </p>
 </form>
 <button type="button" (click)="handleToken()">Check Token</button>
-<h1 *ngIf="tokenIsValid">Token valide: {{ myToken }}</h1>
-<h1 *ngIf="!tokenIsValid">Token non valide</h1>
+<h1>{{ myTokenValidity }}</h1>

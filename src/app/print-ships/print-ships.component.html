@@ -1,5 +1,5 @@
 <button (click)="goBack()"><-</button>
-<button type="button" (click)="printData()">Find Ships</button>
+<button type="button" (click)="getData()">Find Ships</button>
 <div *ngIf="apiData">
   <form [formGroup]="shipForm">
     <label for="shipInput">Enter the name of your ship&nbsp;</label>
@@ -19,3 +19,5 @@
     </option>
   </datalist>
 </div>
+<p>{{ myShip }}</p>
+<p>{{ myShipDesc }}</p>
