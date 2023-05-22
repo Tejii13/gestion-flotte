@@ -22,8 +22,29 @@
   </datalist>
 </div>
 <div *ngFor="let shipInFleet of myFleet">
-  <p *ngIf="shipInFleet" id="{{ myListId }}">
-    {{ shipInFleet }}
+  <p *ngIf="shipInFleet">
+    <img
+      *ngIf="!isLocal"
+      src="{{ shipInFleet.media }}"
+      alt="Image d'un {{ shipInFleet.name }}"
+      width="150em"
+    />
+    <img
+      *ngIf="isLocal"
+      src="https://robertsspaceindustries.com{{ shipInFleet.media }}"
+      alt="Image d'un {{ shipInFleet.name }}"
+      width="150em"
+    />
+    <span>{{ shipInFleet.name }}</span>
+    <span>{{ shipInFleet.type }}</span>
+    <span>
+      <a href="{{ shipInFleet.url }}">Voir la page sur le site de RSI</a>
+    </span>
+    <span>{{ shipInFleet.size }}</span>
+    <span>{{ shipInFleet.cargocapacity }}</span>
+    <span>{{ shipInFleet.manufacturer }}</span>
+    <span>{{ shipInFleet.max_crew }}</span>
+    <span>{{ shipInFleet.production_status }}</span>
     <button (click)="handleRemove(shipInFleet)">Retirer</button>
   </p>
 </div>

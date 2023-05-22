@@ -13,7 +13,6 @@ import { IndexComponent } from './index/index.component';
 
 import { ScApiService } from './sc-api.service';
 import { MembersComponent } from './members/members.component';
-import { ManageShipsComponent } from './print-ships/manage-ships/manage-ships.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { ManageShipsComponent } from './print-ships/manage-ships/manage-ships.co
     PrintShipsComponent,
     IndexComponent,
     MembersComponent,
-    ManageShipsComponent,
   ],
   imports: [
     BrowserModule,
