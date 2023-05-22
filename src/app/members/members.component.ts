@@ -12,12 +12,12 @@ export class MembersComponent {
   constructor(public members: ScApiService, private _route: Router) {}
 
   public apiData: any;
+  private urlDisplay: string;
 
   getMembers() {
     let apiUrl = `https://api.starcitizen-api.com/${apiKey}/live/organization_members/SYNTHS`;
     console.log(apiUrl);
     return this.members.fetchApi(apiUrl).subscribe((data) => {
-      console.log(data.data);
       this.apiData = data.data;
     });
   }
@@ -26,7 +26,7 @@ export class MembersComponent {
   public selectedMember: string;
 
   handleChange(option: string) {
-    console.log(this.selectedMember);
+    this.selectedMember = this.selectedMember.split(' ').join('_');
     this._route.navigateByUrl(`/ships/${this.selectedMember}`);
   }
 }

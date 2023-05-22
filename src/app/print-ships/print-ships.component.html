@@ -1,5 +1,6 @@
 <button (click)="goBack()"><-</button>
 <button type="button" (click)="getData()">Find Ships</button>
+<p *ngIf="isFetching">Récupération des données...</p>
 <div *ngIf="apiData">
   <form [formGroup]="shipForm">
     <label for="shipInput">Enter the name of your ship&nbsp;</label>
@@ -19,4 +20,9 @@
     </option>
   </datalist>
 </div>
-<p>{{ myFleet }}</p>
+<div *ngFor="let shipInFleet of myFleet">
+  <p *ngIf="shipInFleet" id="{{ myListId }}">
+    {{ shipInFleet }}
+    <button (click)="handleRemove(shipInFleet)">Retirer</button>
+  </p>
+</div>
