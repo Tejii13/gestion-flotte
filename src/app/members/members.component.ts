@@ -17,7 +17,6 @@ export class MembersComponent {
     let apiUrl = `https://api.starcitizen-api.com/${apiKey}/live/organization_members/SYNTHS`;
     console.log(apiUrl);
     return this.members.fetchApi(apiUrl).subscribe((data) => {
-      console.log(apiUrl);
       console.log(data.data);
       this.apiData = data.data;
     });
