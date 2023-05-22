@@ -1,5 +1,5 @@
-<button (click)="goBack()"><-</button>
-<button type="button" (click)="getData()">Find Ships</button>
+<button (click)="goBack()">Liste des membres</button>
+<!-- <button type="button" (click)="getData()">Find Ships</button> -->
 <p *ngIf="isFetching">Récupération des données...</p>
 <div *ngIf="apiData">
   <form [formGroup]="shipForm">
@@ -10,6 +10,7 @@
       id="shipInput"
       list="shipsList"
       formControlName="ship"
+      value=""
       (submit)="handleAdd(option)"
     />
     <button (click)="handleAdd(option)">Ajouter</button>

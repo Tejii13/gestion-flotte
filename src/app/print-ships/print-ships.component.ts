@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { apiKey } from '../environment/environment';
 
@@ -12,7 +12,7 @@ import { Ship } from '../ships';
   templateUrl: './print-ships.component.html',
   styleUrls: ['./print-ships.component.sass'],
 })
-export class PrintShipsComponent {
+export class PrintShipsComponent implements OnInit {
   constructor(
     public printShips: ScApiService,
     private location: Location,
@@ -23,8 +23,11 @@ export class PrintShipsComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.getData();
+  }
+
   public apiData: any; // Used in the template
-  public shipForm: FormGroup;
   public isFetching: boolean;
 
   goBack() {
@@ -43,20 +46,21 @@ export class PrintShipsComponent {
     });
   }
 
-  public myShip: string;
-  public option: string;
-  public selectedShip: string;
+  private myFormShip: string;
   private ship: Ship;
+
+  public shipForm: FormGroup;
+  public option: string;
   public myFleet: string[] = [''];
   public myFleetIndex: number = 0;
   public myListId: number;
 
   handleAdd(option: string) {
     // Get the value of the input to find the ship
-    this.myShip = this.shipForm.get('ship')?.value;
+    this.myFormShip = this.shipForm.get('ship')?.value;
     // Search a ship with the same name as input in the api data
     for (let shipIndex of this.apiData) {
-      if (shipIndex && shipIndex.name === this.myShip) {
+      if (shipIndex && shipIndex.name === this.myFormShip) {
         // Add the ship to the end of the list
         this.myFleet[this.myFleetIndex] = shipIndex.name;
         this.myFleetIndex++;
@@ -66,9 +70,8 @@ export class PrintShipsComponent {
         this.ship = shipIndex;
       }
     }
-    console.log(this.myFleet);
-    console.log(this.myListId);
-    console.log(this.apiData);
+    this.shipForm.reset();
+    console.log(this.ship);
   }
 
   handleRemove(option: string) {
