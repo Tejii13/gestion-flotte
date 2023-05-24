@@ -7,12 +7,20 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ScApiService } from '../sc-api.service';
 import { Ship } from '../ships';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { Observable } from 'rxjs';
+
+export interface ByBrand //TODO
+
 @Component({
   selector: 'app-print-ships',
   templateUrl: './print-ships.component.html',
   styleUrls: ['./print-ships.component.sass'],
 })
 export class PrintShipsComponent implements OnInit {
+
   constructor(
     public printShips: ScApiService,
     private location: Location,
@@ -22,6 +30,7 @@ export class PrintShipsComponent implements OnInit {
       ship: '',
     });
   }
+
 
   ngOnInit(): void {
     this.getData();
@@ -41,6 +50,7 @@ export class PrintShipsComponent implements OnInit {
     this.printShips.fetchApi(apiUrl).subscribe((data) => {
       this.isFetching = false;
       this.apiData = data.data;
+      this.sortBrands();
     });
   }
 
@@ -88,7 +98,6 @@ export class PrintShipsComponent implements OnInit {
         this.myFleet.push(this.ship);
         // Put the ship info in the variable ship
         this.ship = shipIndex;
-        console.log(shipIndex.manufacturer.name);
       }
     }
 
@@ -97,5 +106,25 @@ export class PrintShipsComponent implements OnInit {
 
   handleRemove(option: Ship) {
     this.myFleet = this.myFleet.filter((value: Ship) => value !== option);
+  }
+
+  public byBrands = new Map();
+  public brandName: string;
+
+
+
+  sortBrands() {
+    for (let index of this.apiData) {
+      if (index) {
+        this.brandName = index.manufacturer.name;
+        if (this.byBrands.get(this.brandName)) {
+          this.byBrands.get(this.brandName).push(index.name);
+          this.byBrands.set(this.brandName, this.byBrands.get(this.brandName));
+        } else {
+          this.byBrands.set(this.brandName, [index.name]);
+        }
+      }
+    }
+    console.log(this.byBrands);
   }
 }

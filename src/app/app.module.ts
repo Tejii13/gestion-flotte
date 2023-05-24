@@ -13,6 +13,11 @@ import { IndexComponent } from './index/index.component';
 
 import { ScApiService } from './sc-api.service';
 import { MembersComponent } from './members/members.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,10 @@ import { MembersComponent } from './members/members.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [ScApiService],
   bootstrap: [AppComponent],

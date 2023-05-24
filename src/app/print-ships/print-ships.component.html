@@ -2,7 +2,7 @@
 <!-- <button type="button" (click)="getData()">Find Ships</button> -->
 <p *ngIf="isFetching">Récupération des données...</p>
 <div *ngIf="apiData">
-  <form [formGroup]="shipForm">
+  <!-- <form [formGroup]="shipForm">
     <label for="shipInput">Enter the name of your ship&nbsp;</label>
     <input
       type="text"
@@ -14,37 +14,64 @@
       (submit)="handleAdd(option)"
     />
     <button (click)="handleAdd(option)">Ajouter</button>
-  </form>
-  <datalist id="shipsList">
+  </form> -->
+  <!-- <datalist id="shipsList">
     <option *ngFor="let ship of apiData">
       <p *ngIf="ship">{{ ship.name }}</p>
     </option>
-  </datalist>
-</div>
-<div *ngFor="let shipInFleet of myFleet">
-  <p *ngIf="shipInFleet">
-    <img
-      *ngIf="!isLocal"
-      src="{{ shipInFleet.media }}"
-      alt="Image d'un {{ shipInFleet.name }}"
-      width="150em"
-    />
-    <img
-      *ngIf="isLocal"
-      src="https://robertsspaceindustries.com{{ shipInFleet.media }}"
-      alt="Image d'un {{ shipInFleet.name }}"
-      width="150em"
-    />
-    <span>{{ shipInFleet.name }}</span>
-    <span>{{ shipInFleet.type }}</span>
-    <span>
-      <a href="{{ shipInFleet.url }}">Voir la page sur le site de RSI</a>
-    </span>
-    <span>{{ shipInFleet.size }}</span>
-    <span>{{ shipInFleet.cargocapacity }}</span>
-    <span>{{ shipInFleet.manufacturer }}</span>
-    <span>{{ shipInFleet.max_crew }}</span>
-    <span>{{ shipInFleet.production_status }}</span>
-    <button (click)="handleRemove(shipInFleet)">Retirer</button>
-  </p>
+  </datalist> -->
+  <div>
+    <form [formGroup]="shipForm">
+      <mat-form-field>
+        <mat-label>Enter the name of your ship&nbsp;</mat-label>
+        <input
+          type="next"
+          matInput
+          formControlName="ship"
+          placeholder="Ex: Aurora MR"
+          [matAutocomplete]="autoGroup"
+          (submit)="handleAdd(option)"
+        />
+        <mat-autocomplete #autoGroup="matAutocomplete">
+          <mat-optgroup
+            *ngFor="let brand of byBrands | keyvalue"
+            [label]="brand.key"
+          >
+            <mat-option *ngFor="let name of brand.value" [value]="name">{{
+              name
+            }}</mat-option>
+          </mat-optgroup>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button (click)="handleAdd(option)">Ajouter</button>
+    </form>
+  </div>
+
+  <div *ngFor="let shipInFleet of myFleet">
+    <p *ngIf="shipInFleet">
+      <img
+        *ngIf="!isLocal"
+        src="{{ shipInFleet.media }}"
+        alt="Image d'un {{ shipInFleet.name }}"
+        width="150em"
+      />
+      <img
+        *ngIf="isLocal"
+        src="https://robertsspaceindustries.com{{ shipInFleet.media }}"
+        alt="Image d'un {{ shipInFleet.name }}"
+        width="150em"
+      />
+      <span>{{ shipInFleet.name }}</span>
+      <span>{{ shipInFleet.type }}</span>
+      <span>
+        <a href="{{ shipInFleet.url }}">Voir la page sur le site de RSI</a>
+      </span>
+      <span>{{ shipInFleet.size }}</span>
+      <span>{{ shipInFleet.cargocapacity }}</span>
+      <span>{{ shipInFleet.manufacturer }}</span>
+      <span>{{ shipInFleet.max_crew }}</span>
+      <span>{{ shipInFleet.production_status }}</span>
+      <button (click)="handleRemove(shipInFleet)">Retirer</button>
+    </p>
+  </div>
 </div>
