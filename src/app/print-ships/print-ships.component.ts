@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { KeyValuePipe, Location } from '@angular/common';
 import { apiKey } from '../environment/environment';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -7,12 +7,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ScApiService } from '../sc-api.service';
 import { Ship } from '../ships';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { Observable, filter } from 'rxjs';
+import { KeyedRead } from '@angular/compiler';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { Observable } from 'rxjs';
-
-export interface ByBrand //TODO
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @Component({
   selector: 'app-print-ships',
@@ -20,7 +21,6 @@ export interface ByBrand //TODO
   styleUrls: ['./print-ships.component.sass'],
 })
 export class PrintShipsComponent implements OnInit {
-
   constructor(
     public printShips: ScApiService,
     private location: Location,
@@ -30,7 +30,6 @@ export class PrintShipsComponent implements OnInit {
       ship: '',
     });
   }
-
 
   ngOnInit(): void {
     this.getData();
@@ -54,22 +53,21 @@ export class PrintShipsComponent implements OnInit {
     });
   }
 
-  private myFormShip: string;
+  public myFormShip: string;
   private ship: Ship;
 
   public shipForm: FormGroup;
-  public option: string;
   public myFleet: Ship[] = [];
   public imageUrl: string;
   public isLocal: boolean;
 
-  handleAdd(option: string) {
+  handleAdd() {
     // Get the value of the input to find the ship
     this.myFormShip = this.shipForm.get('ship')?.value;
 
     // Search a ship with the same name as input in the api data
     for (let shipIndex of this.apiData) {
-      if (shipIndex && shipIndex.name === this.myFormShip) {
+      if (shipIndex && shipIndex.name && shipIndex.name === this.myFormShip) {
         // Creation of a variable to manipulate the image Url
         this.imageUrl = shipIndex.media[0].source_url;
 
@@ -100,18 +98,18 @@ export class PrintShipsComponent implements OnInit {
         this.ship = shipIndex;
       }
     }
-
     this.shipForm.reset();
   }
+
+  public option: string;
 
   handleRemove(option: Ship) {
     this.myFleet = this.myFleet.filter((value: Ship) => value !== option);
   }
 
   public byBrands = new Map();
-  public brandName: string;
-
-
+  public workingBrands: any[] = [];
+  private brandName: string;
 
   sortBrands() {
     for (let index of this.apiData) {
@@ -125,6 +123,31 @@ export class PrintShipsComponent implements OnInit {
         }
       }
     }
-    console.log(this.byBrands);
+  }
+
+  filterOptions(value: string): any[] {
+    const filterValue = (value ?? '').toLowerCase();
+
+    const filteredBrands: { key: string; value: any[] }[] = [];
+
+    this.byBrands.forEach((shipNames: string[], brandName: string) => {
+      const filteredNames = shipNames.filter((shipName) =>
+        shipName.toLowerCase().includes(filterValue)
+      );
+
+      if (filteredNames.length > 0) {
+        filteredBrands.push({
+          key: brandName,
+          value: filteredNames,
+        });
+      }
+    });
+
+    return filteredBrands;
+  }
+
+  onInput() {
+    this.workingBrands = this.filterOptions(this.shipForm.get('ship')?.value);
+    console.log(this.workingBrands);
   }
 }

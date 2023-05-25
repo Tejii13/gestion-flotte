@@ -29,7 +29,7 @@ export class MembersComponent implements OnInit {
   public option: string;
   public selectedMember: string;
 
-  handleChange(option: string) {
+  handleChange() {
     this.selectedMember = this.selectedMember.split(' ').join('_');
     this._route.navigateByUrl(`/ships/${this.selectedMember}`);
   }

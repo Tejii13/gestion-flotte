@@ -1,49 +1,29 @@
 <button (click)="goBack()">Liste des membres</button>
-<!-- <button type="button" (click)="getData()">Find Ships</button> -->
 <p *ngIf="isFetching">Récupération des données...</p>
+<mat-progress-bar mode="indeterminate" *ngIf="isFetching"></mat-progress-bar>
 <div *ngIf="apiData">
-  <!-- <form [formGroup]="shipForm">
-    <label for="shipInput">Enter the name of your ship&nbsp;</label>
-    <input
-      type="text"
-      placeholder="Example: Aurora"
-      id="shipInput"
-      list="shipsList"
-      formControlName="ship"
-      value=""
-      (submit)="handleAdd(option)"
-    />
-    <button (click)="handleAdd(option)">Ajouter</button>
-  </form> -->
-  <!-- <datalist id="shipsList">
-    <option *ngFor="let ship of apiData">
-      <p *ngIf="ship">{{ ship.name }}</p>
-    </option>
-  </datalist> -->
   <div>
     <form [formGroup]="shipForm">
       <mat-form-field>
-        <mat-label>Enter the name of your ship&nbsp;</mat-label>
+        <mat-label>Nom de votre vaisseau&nbsp;</mat-label>
         <input
           type="next"
           matInput
           formControlName="ship"
           placeholder="Ex: Aurora MR"
           [matAutocomplete]="autoGroup"
-          (submit)="handleAdd(option)"
+          (submit)="handleAdd()"
+          (input)="onInput()"
         />
         <mat-autocomplete #autoGroup="matAutocomplete">
-          <mat-optgroup
-            *ngFor="let brand of byBrands | keyvalue"
-            [label]="brand.key"
-          >
-            <mat-option *ngFor="let name of brand.value" [value]="name">{{
-              name
-            }}</mat-option>
+          <mat-optgroup *ngFor="let brand of workingBrands" [label]="brand.key">
+            <mat-option *ngFor="let name of brand.value" [value]="name">
+              {{ name }}
+            </mat-option>
           </mat-optgroup>
         </mat-autocomplete>
       </mat-form-field>
-      <button (click)="handleAdd(option)">Ajouter</button>
+      <button (click)="handleAdd()">Ajouter</button>
     </form>
   </div>
 

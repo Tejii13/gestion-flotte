@@ -4,7 +4,7 @@
   name="membres"
   title="Membres"
   [(ngModel)]="selectedMember"
-  (change)="handleChange(option)"
+  (change)="handleChange()"
 >
   <option *ngFor="let member of apiData" [value]="member.display">
     {{ member.display }}
