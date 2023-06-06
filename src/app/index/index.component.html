@@ -1,16 +1,23 @@
-<p>Token actuel : 103</p>
+<div class="background">
+  <div class="svg"></div>
+  <app-header></app-header>
+  <div class="index_body">
+    <div class="svg"></div>
 
-<form [formGroup]="tokenForm">
-  <label for="myToken">Enter your token&nbsp;</label>
-  <p>
-    <input
-      id="myToken"
-      type="text"
-      placeholder="My Token"
-      formControlName="token"
-      (input)="handleToken()"
-    />
-  </p>
-</form>
-<button type="button" (click)="handleToken()">Check Token</button>
-<h1>{{ myTokenValidity }}</h1>
+    <p>Token actuel : 103</p>
+
+    <form [formGroup]="tokenForm">
+      <label for="myToken">Enter your token&nbsp;</label>
+      <p>
+        <input
+          id="myToken"
+          type="text"
+          placeholder="My Token"
+          formControlName="token"
+          (input)="handleToken()"
+        />
+      </p>
+    </form>
+    <button type="button" (click)="handleToken()">Check Token</button>
+  </div>
+</div>

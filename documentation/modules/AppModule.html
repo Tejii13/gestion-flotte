@@ -279,6 +279,12 @@ import { IndexComponent } from &#x27;./index/index.component&#x27;;
 
 import { ScApiService } from &#x27;./sc-api.service&#x27;;
 import { MembersComponent } from &#x27;./members/members.component&#x27;;
+import { BrowserAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
+
+import { MatAutocompleteModule } from &#x27;@angular/material/autocomplete&#x27;;
+import { MatInputModule } from &#x27;@angular/material/input&#x27;;
+import { MatFormFieldModule } from &#x27;@angular/material/form-field&#x27;;
+import { MatProgressBarModule } from &#x27;@angular/material/progress-bar&#x27;;
 
 @NgModule({
   declarations: [
@@ -294,6 +300,11 @@ import { MembersComponent } from &#x27;./members/members.component&#x27;;
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatProgressBarModule,
   ],
   providers: [ScApiService],
   bootstrap: [AppComponent],

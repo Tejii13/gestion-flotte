@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PrintShipsComponent } from './print-ships/print-ships.component';
 import { IndexComponent } from './index/index.component';
+import { HeaderComponent } from './header/header.component';
 
 import { ScApiService } from './sc-api.service';
 import { MembersComponent } from './members/members.component';
@@ -19,6 +20,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     PrintShipsComponent,
     IndexComponent,
     MembersComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [ScApiService],
   bootstrap: [AppComponent],

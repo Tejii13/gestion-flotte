@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class IndexComponent {
   public myToken: string;
   public tokenForm: FormGroup;
-  public myTokenValidity: string;
 
   constructor(private formBuilder: FormBuilder, private _route: Router) {
     this.tokenForm = this.formBuilder.group({
@@ -24,10 +23,7 @@ export class IndexComponent {
     console.log(this.myToken.length);
 
     if (this.myToken.length === 3 && parseInt(this.myToken) === 103) {
-      this.myTokenValidity = 'Token is valid';
       this._route.navigateByUrl(`/members/${this.myToken}`);
-    } else {
-      this.myTokenValidity = 'Token is not valid';
     }
   }
 }

@@ -306,7 +306,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>handleChange(option: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>handleChange()</code>
                 </td>
             </tr>
 
@@ -323,40 +323,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>option</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -577,7 +545,7 @@ export class MembersComponent implements OnInit {
   public option: string;
   public selectedMember: string;
 
-  handleChange(option: string) {
+  handleChange() {
     this.selectedMember &#x3D; this.selectedMember.split(&#x27; &#x27;).join(&#x27;_&#x27;);
     this._route.navigateByUrl(&#x60;/ships/${this.selectedMember}&#x60;);
   }
@@ -592,7 +560,7 @@ export class MembersComponent implements OnInit {
   name&#x3D;&quot;membres&quot;
   title&#x3D;&quot;Membres&quot;
   [(ngModel)]&#x3D;&quot;selectedMember&quot;
-  (change)&#x3D;&quot;handleChange(option)&quot;
+  (change)&#x3D;&quot;handleChange()&quot;
 &gt;
   &lt;option *ngFor&#x3D;&quot;let member of apiData&quot; [value]&#x3D;&quot;member.display&quot;&gt;
     {{ member.display }}
@@ -633,7 +601,7 @@ export class MembersComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <button type="button" (click)="getMembers()">Get Members</button> --><select  *ngIf="apiData"  name="membres"  title="Membres"  [(ngModel)]="selectedMember"  (change)="handleChange(option)">  <option *ngFor="let member of apiData" [value]="member.display">    {{ member.display }}  </option></select></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- <button type="button" (click)="getMembers()">Get Members</button> --><select  *ngIf="apiData"  name="membres"  title="Membres"  [(ngModel)]="selectedMember"  (change)="handleChange()">  <option *ngFor="let member of apiData" [value]="member.display">    {{ member.display }}  </option></select></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'IndexComponent', 'selector': 'app-index'},{'name': 'MembersComponent', 'selector': 'app-members'},{'name': 'PrintShipsComponent', 'selector': 'app-print-ships'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MembersComponent'};
