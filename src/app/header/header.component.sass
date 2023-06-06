@@ -17,16 +17,32 @@ a:hover
 
 button
   background-color: rgba(0, 225, 255, 0.025)
+  border-color: white
+
+.menu_button
+  display: none
 
 .logo
-  margin-left: 2em
+  margin-left: 1em
   width: 3em
 
 mat-toolbar
   background-color: rgba(0, 0, 0, 0.1)
+  height: 3.5em
 
 @keyframes flicker
   0%, 18%, 22%, 25%, 53%, 57%, 100%
     text-shadow: 0 0 4px #b1fffb, 0 0 11px #b1fffb, 0 0 19px #b1fffb, 0 0 40px #3ec9e1, 0 0 80px #3ec9e1, 0 0 90px #3ec9e1, 0 0 100px #3ec9e1, 0 0 150px #3ec9e1
   20%, 24%, 55%
     text-shadow: none
+
+@media screen and ( max-width: 580px )
+  .logo
+    // width: 3em
+    margin-left: auto
+    margin-right: 1em
+  .nav_link
+    display: none
+  .menu_button
+    display: block
+    background-color: rgba(177, 255, 251, 0.2)

@@ -22,6 +22,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatProgressBarModule,
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
   ],
   providers: [ScApiService],
   bootstrap: [AppComponent],
