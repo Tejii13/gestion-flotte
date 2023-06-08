@@ -2,7 +2,14 @@
   margin: 1em
 
 .background
-  height: 100vh
-  overflow: hidden
-  background: url(/assets/img/bg.jpg)
-  background-size: cover
+  background-color: #f3040400
+  height: 80vh
+  opacity: 1
+//   overflow: hidden
+//   background: url(/assets/img/bg.jpg)
+//   background-size: cover
+//   background-position-y: 20%
+
+@media screen and ( max-width: 500px )
+  .background
+    background-position: 20% center

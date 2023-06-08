@@ -1,12 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
-  </head>
-  <body>
-    <router-outlet></router-outlet>
-  </body>
-</html>
+<div class="background">
+  <mat-toolbar class="matToolBar" [ngClass]="{'navbar_isShowing': isShowing}">
+    <img src="/assets/img/avatar_rond.png" alt="Logo" class="logo" />
+    <span class="spacer"></span>
+    <a href="https://robertsspaceindustries.com/">
+      <button mat-stroked-button class="nav_link">RSI</button>
+    </a>
+    <a href="#">
+      <button mat-stroked-button class="nav_link">A PROPOS</button>
+    </a>
+    <button mat-fab class="menu_button" (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [opened]="isShowing">
+      <mat-nav-list>
+        <a href="https://robertsspaceindustries.com/" mat-list-item><button mat-strocked-button class="sidenav_link">RSI</button></a>
+        <a href="#" mat-list-item><button mat-strocked-button class="sidenav_link">A PROPOS</button></a>
+        <a href="#" mat-list-item><button mat-strocked-button class="sidenav_link">DISCORD</button></a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="main_content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

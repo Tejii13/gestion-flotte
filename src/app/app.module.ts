@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { PrintShipsComponent } from './print-ships/print-ships.component';
 import { IndexComponent } from './index/index.component';
-import { HeaderComponent } from './header/header.component';
 
 import { ScApiService } from './sc-api.service';
 import { MembersComponent } from './members/members.component';
@@ -24,6 +23,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     PrintShipsComponent,
     IndexComponent,
     MembersComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +49,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [ScApiService],
   bootstrap: [AppComponent],

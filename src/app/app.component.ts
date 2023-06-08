@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {}
   title = 'gestion-flotte';
+
+
+  public isShowing: boolean = false;
+
+  toggleSidebar() {
+    this.isShowing = !this.isShowing;
+  }
 }
