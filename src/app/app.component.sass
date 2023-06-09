@@ -1,13 +1,15 @@
+@use '/src/assets/variables.sass' as v
+
 body
   margin: 0
 
 .spacer
   flex: 1 1 auto
 
-.nav_link
+.toolbar_button
   margin-right: 1em
-  color: #b1fffb
-  text-shadow: 0 0 7px #b1fffb, 0 0 10px #b1fffb, 0 0 21px #b1fffb,0 0 42px #3ec9e1, 0 0 82px #3ec9e1, 0 0 92px #3ec9e1, 0 0 102px #3ec9e1, 0 0 151px #3ec9e1
+  color: v.$shad_li
+  text-shadow: 0 0 7px v.$shad_li, 0 0 10px v.$shad_li, 0 0 21px v.$shad_li,0 0 42px #3ec9e1, 0 0 82px #3ec9e1, 0 0 92px #3ec9e1, 0 0 102px #3ec9e1, 0 0 151px #3ec9e1
   text-decoration: none
   font-size: 1em
   animation: flicker 1.5s infinite alternate
@@ -16,11 +18,7 @@ a:visited
   color: #b1fffb
 
 a:hover
-  color: #1b656e
-
-button
-  background-color: #00e1ff06
-  border-color: white
+  color: white
 
 .menu_button
   display: none
@@ -28,6 +26,9 @@ button
 .logo
   margin-left: 1em
   width: 3em
+
+.logo_link
+  margin-top: 0.4em
 
 mat-toolbar
   background-color: rgba(0, 0, 0, 0.1)
@@ -44,6 +45,7 @@ mat-sidenav-container
 
 .main_content
   height: 90vh
+  margin: 1em
 
 // SideNav HERE
 mat-sidenav
@@ -51,15 +53,18 @@ mat-sidenav
   height: 100vh
   background-color: rgba(0, 0, 0, 0.5)
 
-.sidenav_link
-  // margin-top: 0.8em
+.sidenav_button
   color: #78e4ff
+  position: center
   text-shadow: 0 0 20px white
   background-color: rgba(2, 59, 92, 0.8)
   text-decoration: none
   border: black solid 1px
-  font-size: 1.5em
-  width: 7em
+  font-size: 2em
+  width: 100%
+
+.sidenav_link
+  margin-top: 3em
 
 .navbar_isShowing
   background-color: rgba(0, 0, 0, 0.8)
@@ -73,15 +78,17 @@ mat-nav-list
   20%, 24%, 55%
     text-shadow: none
 
-@media screen and ( max-width: 580px )
+@media screen and ( v.$small_screen)
   .logo
     margin-left: auto
     margin-right: 1em
-  .nav_link
+  .toolbar_button
     display: none
+    background-color: rgba(120, 228, 255, 0.2)
   .menu_button
     display: block
-    // background-color: #b1fffb33
     background-color: rgba(2, 59, 92, 0.2)
   .background
     background-position-x: 5%
+  .navbar_isShowing_menu_button
+    background-color: rgba(2, 59, 92, )

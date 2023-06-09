@@ -1,15 +1,55 @@
-.index_body
-  margin: 1em
+@use '/src/assets/variables.sass' as v
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap')
 
-.background
-  background-color: #f3040400
-  height: 80vh
-  opacity: 1
-//   overflow: hidden
-//   background: url(/assets/img/bg.jpg)
-//   background-size: cover
-//   background-position-y: 20%
+// Formatage des sections
+.description, .le_collectif, .connection
+  background-color: rgba(2, 59, 92, 0.8)
 
-@media screen and ( max-width: 500px )
-  .background
+section
+  // width: 700px
+  width: 60%
+  margin: 0 0 1em 0
+
+//Formatage du texte
+h1
+  margin: 0
+  padding: 1em 0 1em 1em
+  color: #b1fffb
+  text-shadow: 0 0 7px #b1fffb, 0 0 21px #b1fffb, 0 0 82px #3ec9e1, 0 0 102px #3ec9e1
+
+.description p, .le_collectif p
+  text-align: center
+
+p
+  color: #adc8d3
+  margin: 0 2em
+  padding-bottom: 1em
+  font-family: "Unica One", cursive
+  font-size: 1.2em
+
+// Formatage bouton connexion
+.button_connect
+  border: solid black 1px
+  margin-bottom: 1em
+
+// Petit Ecran
+
+@media screen and ( v.$small_screen )
+  .content
     background-position: 20% center
+    // width: calc( 100vw -  )
+    height: 90vh
+    width: 100%
+
+  h1
+    font-size: calc( 2% + 1.5em )
+    text-align: center
+    margin: 0
+    padding: 0.2em 0 0.7em 0
+
+  p
+    font-size: calc( 2% + 1em )
+
+  section
+    width: 100%
+    margin-bottom: 3em

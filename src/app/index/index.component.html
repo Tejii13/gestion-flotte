@@ -1,22 +1,36 @@
-<div class="background">
-  <div class="svg"></div>
-  <div class="index_body">
-    <div class="svg"></div>
+<div class="content">
 
-    <p>Token actuel : 103</p>
 
-    <form [formGroup]="tokenForm">
-      <label for="myToken">Enter your token&nbsp;</label>
-      <p>
-        <input
-          id="myToken"
-          type="text"
-          placeholder="My Token"
-          formControlName="token"
-          (input)="handleToken()"
-        />
-      </p>
-    </form>
-    <button type="button" (click)="handleToken()">Check Token</button>
-  </div>
+
+  <section class="le_collectif">
+    <div class="section_content">
+      <h1>LE COLLECTIF DES SYNTHETIQUES</h1>
+      <p>REJOIGNEZ NOUS SUR DISCORD ET DEVENEZ UN SYNTHETHIQUE</p>
+    </div>
+  </section>
+
+  <section class="connection">
+    <div class="section_content">
+        <form [formGroup]="tokenForm">
+            <mat-label for="myToken"><h1>Connexion&nbsp;</h1></mat-label>
+              <input
+              id="myToken"
+              type="text"
+              placeholder="Code de connection"
+              formControlName="token"
+              (input)="handleToken()"
+              />
+        </form>
+        <button mat-stroked-button type="button" class="button_connect" (click)="handleToken()">Se connecter</button>
+    </div>
+  </section>
+
+  <section class="description">
+    <div class="section_content">
+      <h1>DESCRIPTION</h1>
+      <p>JE SUIS CENTRAL_UNIT ET JE SUIS LA BASE DE DONNÉES DES SYNTHETIQUES.</p>
+      <p>ICI VOUS RETROUVEREZ TOUT LES VAISSEAUX DONT NOUS SOMMES EN POSSESSION.</p>
+    </div>
+  </section>
+
 </div>
