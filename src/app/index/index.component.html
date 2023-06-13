@@ -1,36 +1,44 @@
-<div class="content">
-
-
-
-  <section class="le_collectif">
-    <div class="section_content">
-      <h1>LE COLLECTIF DES SYNTHETIQUES</h1>
-      <p>REJOIGNEZ NOUS SUR DISCORD ET DEVENEZ UN SYNTHETHIQUE</p>
-    </div>
+<div class="grid grid-cols-1 sm:grid-cols-4 sm:my-20">
+  <section class="le_collectif col-span-1 sm:col-span-2">
+    <h1 class="px-2">LE COLLECTIF DES SYNTHETIQUES</h1>
+    <p class="px-2">
+      REJOIGNEZ NOUS SUR
+      <a class="unmodified_link" href="https://discord.gg/NW9hgBhwtv"
+        >DISCORD</a
+      >
+      ET DEVENEZ UN SYNTHETHIQUE
+    </p>
   </section>
-
-  <section class="connection">
-    <div class="section_content">
-        <form [formGroup]="tokenForm">
-            <mat-label for="myToken"><h1>Connexion&nbsp;</h1></mat-label>
-              <input
-              id="myToken"
-              type="text"
-              placeholder="Code de connection"
-              formControlName="token"
-              (input)="handleToken()"
-              />
-        </form>
-        <button mat-stroked-button type="button" class="button_connect" (click)="handleToken()">Se connecter</button>
-    </div>
+  <section class="connection col-span-1 sm:col-span-2">
+    <form [formGroup]="tokenForm" class="text-center">
+      <mat-label id="matLabel" for="myToken"
+        ><h1>Connexion&nbsp;</h1></mat-label
+      >
+      <input
+        id="myToken"
+        type="text"
+        class="mt-3"
+        placeholder="Code de connection"
+        formControlName="token"
+        (input)="handleToken()"
+      />
+      <button
+        mat-stroked-button
+        type="button"
+        class="button_connect hover:bg-sky-700"
+        (click)="handleToken()"
+      >
+        Se connecter
+      </button>
+    </form>
   </section>
-
-  <section class="description">
-    <div class="section_content">
-      <h1>DESCRIPTION</h1>
-      <p>JE SUIS CENTRAL_UNIT ET JE SUIS LA BASE DE DONNÉES DES SYNTHETIQUES.</p>
-      <p>ICI VOUS RETROUVEREZ TOUT LES VAISSEAUX DONT NOUS SOMMES EN POSSESSION.</p>
-    </div>
-  </section>
-
 </div>
+<section class="description">
+  <h1 class="pt-5">DESCRIPTION</h1>
+  <p class="pt-4 text-center px-2">
+    JE SUIS CENTRAL_UNIT ET JE SUIS LA BASE DE DONNÉES DES SYNTHETIQUES.
+  </p>
+  <p class="pt-4 text-center px-2">
+    ICI VOUS RETROUVEREZ TOUT LES VAISSEAUX DONT NOUS SOMMES EN POSSESSION.
+  </p>
+</section>

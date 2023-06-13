@@ -1,0 +1,27 @@
+<div class="content">
+
+      <section class="le_collectif">
+              <h1>LE COLLECTIF DES SYNTHETIQUES</h1>
+              <p>REJOIGNEZ NOUS SUR DISCORD ET DEVENEZ UN SYNTHETHIQUE</p>
+      </section>
+
+            <section class="connection">
+                  <form [formGroup]="tokenForm">
+                        <mat-label id="matLabel" for="myToken"><h1>Connexion&nbsp;</h1></mat-label>
+                          <input
+                          id="myToken"
+                          type="text"
+                          placeholder="Code de connection"
+                          formControlName="token"
+                          (input)="handleToken()"
+                          />
+                  </form>
+                  <button mat-stroked-button type="button" class="button_connect" (click)="handleToken()">Se connecter</button>
+            </section>
+    <section class="description">
+          <h1>DESCRIPTION</h1>
+          <p>JE SUIS CENTRAL_UNIT ET JE SUIS LA BASE DE DONNÉES DES SYNTHETIQUES.</p>
+          <p>ICI VOUS RETROUVEREZ TOUT LES VAISSEAUX DONT NOUS SOMMES EN POSSESSION.</p>
+    </section>
+
+</div>

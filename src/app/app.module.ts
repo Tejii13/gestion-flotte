@@ -24,7 +24,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+import { AboutComponent } from './about/about.component'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatListModule } from '@angular/material/list'
     PrintShipsComponent,
     IndexComponent,
     MembersComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

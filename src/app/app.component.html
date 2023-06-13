@@ -1,6 +1,8 @@
 <div class="background">
-  <mat-toolbar class="matToolBar" [ngClass]="{'navbar_isShowing': isShowing}">
-    <a href="https://robertsspaceindustries.com/orgs/SYNTHS" class="logo_link"><img src="/assets/img/avatar_rond.png" alt="Logo" class="logo"/></a>
+  <mat-toolbar class="matToolBar" [ngClass]="{ navbar_isShowing: isShowing }">
+    <a href="https://robertsspaceindustries.com/orgs/SYNTHS" class="logo_link"
+      ><img src="/assets/img/avatar_rond.png" alt="Logo" class="logo"
+    /></a>
     <span class="spacer"></span>
     <a href="https://robertsspaceindustries.com/">
       <button mat-stroked-button class="toolbar_button">RSI</button>
@@ -8,18 +10,43 @@
     <a href="#">
       <button mat-stroked-button class="toolbar_button">A PROPOS</button>
     </a>
-    <button mat-fab class="menu_button" [ngClass]="{'navbar_isShowing_menu_button': isShowing}" (click)="toggleSidebar()">
+    <a href="https://discord.gg/NW9hgBhwtv">
+      <button mat-stroked-button class="toolbar_button">Discord</button>
+    </a>
+    <button
+      mat-fab
+      class="menu_button"
+      [ngClass]="{ navbar_isShowing_menu_button: isShowing }"
+      (click)="toggleSidebar()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
   </mat-toolbar>
 
-
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over" [opened]="isShowing">
       <mat-nav-list>
-        <a class="sidenav_link" href="https://robertsspaceindustries.com/" mat-list-item><button mat-strocked-button class="sidenav_button">RSI</button></a>
-        <a class="sidenav_link" href="#" mat-list-item><button mat-strocked-button class="sidenav_button">A PROPOS</button></a>
-        <a class="sidenav_link" href="#" mat-list-item><button mat-strocked-button class="sidenav_button">DISCORD</button></a>
+        <a
+          class="sidenav_link"
+          href="https://robertsspaceindustries.com/"
+          mat-list-item
+          ><button mat-strocked-button class="sidenav_button">RSI</button></a
+        >
+        <a class="sidenav_link" href="#" mat-list-item
+          ><button mat-strocked-button class="sidenav_button">
+            A PROPOS
+          </button></a
+        >
+        <a class="sidenav_link" href="#" mat-list-item
+          ><button mat-strocked-button class="sidenav_button">
+            DISCORD
+          </button></a
+        >
+        <a class="sidenav_link" href="#" mat-list-item
+          ><button mat-strocked-button class="sidenav_button">
+            FREE AUEC
+          </button></a
+        >
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
